@@ -94,7 +94,7 @@ export default function Header() {
                     {/* --- GAUCHE (Desktop uniquement) --- */}
                     <div className="hidden lg:flex flex-1 h-full items-center justify-start border-r border-[var(--header-border)] transition-colors duration-400">
                         <HeaderLink to="/" label="Accueil" />
-                        <HeaderLink to="/about" label="Notre Groupe" />
+                        <HeaderLink to="/about" label="Le Groupe" />
                         {/* <HeaderLink to="/events" label="Evènements" /> */}
                         {/* <HeaderLink to="/news" label="Nouveautés" /> */}
                     </div>
@@ -115,10 +115,10 @@ export default function Header() {
                             </span>
                         </div>
                         <p
-                            className="absolute w-full translate-y-[250%] text-center text-lg lg:text-2xl font-serif italic text-gold-dark transition-transform duration-500 group-hover:translate-y-0"
+                            className="absolute w-full px-4 translate-y-[250%] text-center text-sm lg:text-lg font-serif italic text-sibiri-gold transition-transform duration-500 group-hover:translate-y-0"
                             style={{ transitionTimingFunction: 'cubic-bezier(0.49, 0.03, 0.13, 0.99)' }}
                         >
-                            Les détails, où que vous soyez.
+                            Rencontrez un responsable pour parler de votre projet...
                         </p>
                     </NavLink>
 
@@ -143,7 +143,7 @@ export default function Header() {
 
                     {/* --- DROITE (Desktop uniquement) --- */}
                     <div className="hidden lg:flex flex-1 h-full items-center justify-end border-l border-[var(--header-border)] transition-colors duration-400">
-                        <HeaderLink to="/activites" label="Activités" />
+                        <HeaderLink to="/activites" label="Nos Activités" />
                         <HeaderLink to="/contact" label="Contact" />
                         {/* <HeaderLink to="/confections" label="Confections" /> */}
                         {/* <HeaderLink to="/tenues" label="Tenues" /> */}
@@ -157,7 +157,7 @@ export default function Header() {
             <StaggeredMenu
                 isOpen={menuOpen}
                 onClose={() => setMenuOpen(false)}
-                accentColor="var(--color-gold, #c9a84c)"
+                accentColor="var(--color-sibiri-gold, #c9a84c)"
                 colors={['#f5f5f0', '#efefea']}
                 displaySocials={true}
                 socialItems={[
@@ -166,8 +166,8 @@ export default function Header() {
                 ]}
                 items={[
                     { label: 'Accueil', ariaLabel: 'Accueil', link: '/' },
-                    { label: 'Notre Groupe', ariaLabel: 'Notre Groupe', link: '/about' },
-                    { label: 'Activités', ariaLabel: 'Activités', link: '/activites' },
+                    { label: 'Le Groupe', ariaLabel: 'Le Groupe', link: '/about' },
+                    { label: 'Nos Activités', ariaLabel: 'Nos Activités', link: '/activites' },
                     { label: 'Contact', ariaLabel: 'Contact', link: '/contact' }
                 ]}
             />
@@ -184,13 +184,13 @@ function HeaderLink({ to, label }: { to: string; label: string }) {
             className={({ isActive }) => `
                 group/link relative flex h-full grow items-center justify-center px-2 xl:px-4 font-bold uppercase text-[10px] xl:text-base tracking-widest transition-all duration-400
                 border-r border-[var(--header-border)] last:border-r-0 hover:bg-black/5
-                ${isActive ? "bg-gold !text-black" : "text-[var(--header-text)]"}
+                ${isActive ? "bg-sibiri-gold !text-black" : "text-[var(--header-text)]"}
             `}
             style={{ transition: 'var(--header-transition)' }}
         >
             {label}
             <div className={`absolute bottom-0 left-0 h-[3px] w-full transition-colors duration-300 
-                ${location.pathname === to ? 'bg-gold' : 'bg-transparent group-hover/link:bg-gold'}
+                ${location.pathname === to ? 'bg-sibiri-gold' : 'bg-transparent group-hover/link:bg-sibiri-gold'}
             `} />
         </NavLink>
     );

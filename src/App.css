@@ -2,4 +2,13 @@
 
 @theme {
   --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  
+  /* Sibiri Brand Colors */
+  --color-sibiri-blue: #1B273D;
+  --color-sibiri-gold: #FDB717;
+}
+
+:root {
+  --color-blue: #1B273D;
+  --color-gold: #FDB717;
 }
