@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Link } from 'react-router-dom';
-import SectionTitle from '../utils/SectionTitle.tsx';
+
 
 const partners = [
     { 
