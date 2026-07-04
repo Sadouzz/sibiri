@@ -27,18 +27,16 @@ function AppContent() {
   }, { dependencies: [location.pathname] });
 
   return (
-    <div className="relative flex min-h-screen overflow-hidden">
-
+    <div className="relative flex flex-col min-h-screen">
       {/* Background Gradients (Tailwind version) */}
       <div className="fixed inset-0 z-0 bg-gradient-to-br from-[#07143f]/30 to-[#4e47c6]/20" />
       <div className="fixed inset-0 z-0 pointer-events-none bg-gradient-to-br from-[#07143f]/20 to-[#4e47c6]/10" />
 
       {/* Main Content */}
-      <main className="relative z-20 flex-grow overflow-auto">
+      <main className="relative z-20 flex-grow">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-
         </Routes>
         <Footer />
       </main>
