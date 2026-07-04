@@ -70,13 +70,13 @@ export default function PartnersSection() {
     const duplicatedPartners = [...partners, ...partners];
 
     return (
-        <section className="bg-white py-24! text-sibiri-blue border-t border-b border-gray-200 overflow-hidden relative">
+        <section className="bg-white py-48! text-sibiri-blue border-t border-b border-gray-200 overflow-hidden relative">
             <div className={`relative flex w-full flex-col-reverse text-center`}>
-                <h2 className="uppercase font-serif font-bold text-balance text-5xl lg:text-8xl block">
-                    Nos <em className="text-sibiri-gold not-italic">Sociétés.</em>
+                <h2 className="font-bold text-balance text-4xl md:text-5xl lg:text-7xl font-semibold italic block">
+                    Nos <em className="text-sibiri-gold italic">Sociétés.</em>
                 </h2>
             </div>
-            <div className='text-center flex justify-center my-5!'>
+            <div className='text-center flex justify-center my-8!'>
                 <p className="text-sibiri-blue/70 max-w-2xl mx-auto text-sm md:text-base leading-relaxed text-center">
                     Nous sommes fiers de collaborer avec des entreprises de premier plan pour délivrer des projets d'exception.
                 </p>
@@ -118,10 +118,10 @@ export default function PartnersSection() {
                 </div>
             </div>
 
-            <div className="text-center my-10!">
-                <Link to="/contact" className="btn-outline inline-flex items-center">
+            <div className="text-center my-12!">
+                <Link to="/contact" className="inline-flex items-center px-8 py-4 border border-sibiri-blue text-sibiri-blue hover:bg-sibiri-blue hover:text-white font-bold tracking-widest text-xs uppercase transition-colors duration-300">
                     <span>Devenir partenaire</span>
-                    <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                 </Link>

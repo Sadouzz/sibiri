@@ -86,7 +86,9 @@ export default function Header() {
                     backgroundColor: 'var(--header-bg)',
                     borderColor: 'var(--header-border)',
                     color: 'var(--header-text)',
-                    transition: 'var(--header-transition)'
+                    transition: 'var(--header-transition)',
+                    backdropFilter: 'blur(12px)',
+                    WebkitBackdropFilter: 'blur(12px)'
                 }}
             >
                 <nav className="flex w-full h-full items-center relative z-10 justify-between lg:justify-start">

@@ -76,9 +76,9 @@ export default function ServicesSection() {
             {/* GLOBAL STATIC TITLE - STAYS PERFECTLY STILL */}
             <div className="sticky top-24 z-50 pointer-events-none h-0 w-full w-full">
                 <div className="pl-8 md:pl-16">
-                    <span className="text-sm md:text-base font-semibold tracking-widest uppercase block" style={{ color: '#FDB717', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold italic tracking-tight" style={{ color: '#FDB717', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                         Nos Services
-                    </span>
+                    </h1>
                 </div>
             </div>
 

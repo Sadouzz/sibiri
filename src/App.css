@@ -12,3 +12,25 @@
   --color-blue: #1B273D;
   --color-gold: #FDB717;
 }
+
+/* Header Themes - Adapts to background with semi-transparency */
+.header-theme-white {
+  --header-bg: rgba(255, 255, 255, 0.75);
+  --header-border: rgba(0, 0, 0, 0.1);
+  --header-text: #000000;
+  --header-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-theme-black {
+  --header-bg: rgba(27, 39, 61, 0.75); /* sibiri blue */
+  --header-border: rgba(255, 255, 255, 0.1);
+  --header-text: #ffffff;
+  --header-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-theme-gold {
+  --header-bg: rgba(253, 183, 23, 0.85); /* sibiri gold */
+  --header-border: rgba(255, 255, 255, 0.2);
+  --header-text: #000000;
+  --header-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}

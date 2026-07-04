@@ -32,7 +32,7 @@ export default function CurtainReveal({ children, curtainColor = "#1B273D" }: Cu
             rectsRef.current,
             {
                 height: 0,
-                y: -50,
+                y: 0,
                 duration: 0.8,
                 stagger: 0.05,
             }
