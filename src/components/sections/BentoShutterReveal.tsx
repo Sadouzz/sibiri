@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import ServicesSection from "./ServicesSection";
+import StyledHeading from "../atoms/StyledHeading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,7 +15,7 @@ const BENTO_BOXES = [
     { id: 2, mdLayout: "md:top-[10%] md:left-[25.5%] md:w-[23%] md:h-[40%]", xDir: -0.5, yDir: -1, statValue: "5", statSuffix: "+", statLabel: "Filiales actives", statSublabel: "Présence nationale et internationale." },
     { id: 3, mdLayout: "md:top-0 md:left-[51%] md:w-[23%] md:h-[40%]", xDir: 0.5, yDir: -1, statValue: "98", statSuffix: "%", statLabel: "Clients satisfaits", statHighlightText: "*La qualité", statHighlightAccent: "avant tout." },
     { id: 4, mdLayout: "md:top-[15%] md:left-[76.5%] md:w-[23.5%] md:h-[40%]", xDir: 1, yDir: -1, statValue: "24/7", statSuffix: "", statLabel: "Assistance globale", statSublabel: "Toujours à l'écoute de nos partenaires." },
-    
+
     // Bottom Row
     { id: 5, mdLayout: "md:top-[45%] md:left-0 md:w-[23%] md:h-[55%]", xDir: -1, yDir: 1, statValue: "200", statSuffix: "+", statLabel: "Collaborateurs", statSublabel: "Une équipe dédiée à votre réussite." },
     { id: 6, mdLayout: "md:top-[55%] md:left-[25.5%] md:w-[48.5%] md:h-[45%]", xDir: 0, yDir: 1, statValue: "50", statSuffix: "+", statLabel: "Projets BTP réalisés à grande échelle", statHighlightText: "Des infrastructures", statHighlightAccent: "modernes et durables." },
@@ -84,16 +85,19 @@ export default function BentoShutterReveal() {
 
     return (
         <div ref={containerRef} className="relative w-full bg-[#050505]">
-            
+
             {/* SHUTTER FOREGROUND (Stays on screen for the first 150vh of scrolling) */}
             <div className="absolute top-0 left-0 w-full h-[150vh] pointer-events-none z-50">
                 <div className="sticky top-0 w-full h-screen overflow-hidden flex flex-col items-center justify-center px-4 md:px-8 pt-8 md:pt-12">
-                    
+
                     {/* SECTION HEADER */}
                     <div ref={headerRef} className="w-full  mb-6 md:mb-8 text-left pointer-events-auto will-change-transform z-10">
-                        <span className="text-sm md:text-base font-semibold tracking-widest uppercase mb-2 md:mb-3 block" style={{ color: '#FDB717' }}>
-                            Nos chiffres
-                        </span>
+                        <StyledHeading
+                            title="Nos"
+                            titleColor='text-white'
+                            textPosition='text-left'
+                            highlightedText="Chiffres"
+                        />
                         <h1 className="text-3xl md:text-5xl font-light text-white leading-tight mb-3 tracking-tight ">
                             Transformons vos idées en <span className="font-medium" style={{ color: '#FDB717' }}>réalisations d'excellence</span>
                         </h1>
@@ -106,7 +110,7 @@ export default function BentoShutterReveal() {
                     <div className="relative w-full h-auto md:h-[60vh] flex flex-col md:block ">
                         {BENTO_BOXES.map((box, i) => {
                             const isWide = box.mdLayout.includes("w-[48.5%]");
-                            
+
                             const valueSize = isWide ? "text-6xl md:text-[5rem] lg:text-[5.5rem]" : "text-5xl md:text-5xl lg:text-6xl";
                             const suffixSize = isWide ? "text-2xl md:text-3xl" : "text-xl md:text-2xl";
                             const labelSize = isWide ? "text-base md:text-lg" : "text-sm md:text-base";
@@ -126,10 +130,10 @@ export default function BentoShutterReveal() {
                                     >
                                         {/* Radial Glow Effect */}
                                         <div className="absolute inset-0 pointer-events-none"
-                                             style={{ background: 'radial-gradient(circle at 50% 50%, rgba(253, 183, 23, 0.08) 0%, rgba(27, 39, 61, 0.05) 50%, transparent 70%)' }} />
-                                             
+                                            style={{ background: 'radial-gradient(circle at 50% 50%, rgba(253, 183, 23, 0.08) 0%, rgba(27, 39, 61, 0.05) 50%, transparent 70%)' }} />
+
                                         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:20px_20px]" />
-                                        
+
                                         {box.statValue ? (
                                             <div className={`relative z-10 flex flex-col justify-between h-full w-full ${pSize}`}>
                                                 {/* Headline */}

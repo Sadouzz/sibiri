@@ -8,7 +8,7 @@ const Mission: React.FC = () => {
                 {/* Title */}
                 <div className="col-span-1">
                     <HorizontalCurtainReveal curtainColor='#fff'>
-                        <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl tracking-tight">
+                        <h2 className="font-serif italic text-5xl md:text-6xl lg:text-7xl tracking-tight">
                             Le Groupe
                         </h2>
                     </HorizontalCurtainReveal>

@@ -33,25 +33,25 @@ export default function Footer() {
 
     return (
         <>
-            {/* Spacer to push content up and reveal footer */}
-            <div style={{ height: footerHeight }} className="w-full relative -z-20 pointer-events-none"></div>
+            {/* Spacer to push content up and reveal footer (only on large screens) */}
+            <div style={{ height: footerHeight }} className="hidden lg:block w-full relative -z-20 pointer-events-none"></div>
             
             <footer 
                 ref={footerRef}
-                className="fixed bottom-0 left-0 w-full p-2 md:p-4 bg-white -z-10"
+                className="relative lg:fixed bottom-0 left-0 w-full bg-white z-0 lg:-z-10"
             >
-                <div className="bg-sibiri-blue text-white rounded-[2rem] p-8 md:p-12 lg:p-16 flex flex-col justify-between min-h-[85vh] relative overflow-hidden">
+                <div className="bg-sibiri-blue text-white p-8 md:p-12 lg:p-12 flex flex-col justify-between relative overflow-hidden">
                     
                     {/* TOP ROW */}
                     <div className="flex flex-col lg:flex-row justify-between gap-16 w-full flex-1">
                         
                         {/* Left: Branding */}
                         <div className="flex flex-col lg:w-[55%]">
-                            <h2 className="text-7xl md:text-9xl lg:text-[150px] font-medium tracking-tighter mb-8 flex items-start leading-none font-sans text-white">
-                                Sibiri <sup className="text-3xl md:text-5xl mt-4 md:mt-8 ml-2 font-light text-sibiri-gold">®</sup>
+                            <h2 className="text-5xl md:text-7xl lg:text-[100px] font-medium tracking-tighter mb-4 flex items-start leading-none font-sans text-white">
+                                Sibiri <sup className="text-2xl md:text-4xl mt-2 md:mt-4 ml-2 font-light text-sibiri-gold">®</sup>
                             </h2>
 
-                            <div className="mt-auto pt-12 lg:pt-32">
+                            <div className="mt-auto pt-8 lg:pt-12">
                                 <p className="max-w-md text-white/80 text-sm md:text-base font-sans mb-8 leading-relaxed">
                                     SIBIRI Holding SA est une société d’investissements, de gestion et de contrôle d’actifs mobiliers et immobiliers, née d’une stratégie d’unité d’actions impulsée par Monsieur Mahamadou Lamine Ouedraogo.
                                 </p>
@@ -65,7 +65,7 @@ export default function Footer() {
                         <div className="flex flex-col lg:w-[45%] justify-between">
                             
                             {/* Top right corner (Arrow and Date) */}
-                            <div className="hidden lg:flex justify-end items-start mb-24 gap-12 relative">
+                            <div className="hidden lg:flex justify-end items-start mb-8 gap-8 relative">
                                 <div className="flex items-center gap-6 mt-4">
                                     <span className="text-white/80 font-sans text-xl">© 20-26</span>
                                     <div className="w-20 h-[3px] bg-sibiri-gold"></div>
@@ -87,7 +87,7 @@ export default function Footer() {
                             </div>
 
                             {/* Navigation Columns */}
-                            <div className="grid grid-cols-2 md:grid-cols-3 gap-12 lg:gap-8 mt-16 lg:mt-auto">
+                            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 lg:gap-8 mt-12 lg:mt-auto">
                                 {/* NAVIGATION */}
                                 <div className="flex flex-col gap-5">
                                     <h4 className="text-[11px] tracking-widest uppercase text-white/50 font-sans mb-2">Navigation</h4>
@@ -128,7 +128,7 @@ export default function Footer() {
                     </div>
 
                     {/* BOTTOM INFO */}
-                    <div className="mt-24 lg:mt-32 flex flex-col md:flex-row justify-between gap-12 md:gap-4 pb-12">
+                    <div className="mt-12 lg:mt-16 flex flex-col md:flex-row justify-between gap-8 md:gap-4 pb-8">
                         <div className="flex flex-col gap-3">
                             <span className="text-[10px] tracking-[0.2em] uppercase text-white/50">Phone Number</span>
                             <span className="text-xs md:text-sm font-sans uppercase font-medium tracking-wider">+226 25 37 69 44</span>

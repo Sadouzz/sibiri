@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { Link } from 'react-router-dom';
+import StyledHeading from './StyledHeading';
 
 
 const partners = [
@@ -71,11 +72,10 @@ export default function PartnersSection() {
 
     return (
         <section className="bg-white py-48! text-sibiri-blue border-t border-b border-gray-200 overflow-hidden relative">
-            <div className={`relative flex w-full flex-col-reverse text-center`}>
-                <h2 className="font-bold text-balance text-4xl md:text-5xl lg:text-7xl font-semibold italic block">
-                    Nos <em className="text-sibiri-gold italic">Sociétés.</em>
-                </h2>
-            </div>
+            <StyledHeading
+                title="Nos" 
+                highlightedText="Sociétés" 
+            />
             <div className='text-center flex justify-center my-8!'>
                 <p className="text-sibiri-blue/70 max-w-2xl mx-auto text-sm md:text-base leading-relaxed text-center">
                     Nous sommes fiers de collaborer avec des entreprises de premier plan pour délivrer des projets d'exception.

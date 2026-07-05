@@ -2,7 +2,17 @@ import React from "react";
 // import HeroVideo from "./atoms/HeroVideo";
 import img1 from "../assets/img/hero.jpg";
 
-const Hero: React.FC = () => {
+interface HeroProps {
+    title?: string;
+    subtitle?: string;
+    image?: string;
+}
+
+const Hero: React.FC<HeroProps> = ({ 
+    title = "Bâtir ensemble", 
+    subtitle = "Le meilleur pour l'Afrique",
+    image = img1
+}) => {
     return (
         <div
             id="hero"
@@ -13,7 +23,7 @@ const Hero: React.FC = () => {
         >
             {/* Background Image / Video placeholder */}
             <img
-                src={img1}
+                src={image}
                 alt="placeholder background"
                 style={{
                     position: "absolute",
@@ -29,23 +39,23 @@ const Hero: React.FC = () => {
             <div className="absolute inset-0 bg-black/20" style={{ zIndex: 1 }}></div>
 
             {/* Bottom Content Container */}
-            <div 
+            <div
                 className="absolute bottom-0 left-0 w-full flex justify-between items-end pb-12 px-6 lg:px-12"
                 style={{ zIndex: 2 }}
             >
                 {/* Bottom Left: Large Title and Subtitle */}
                 <div className="flex flex-col items-start gap-2">
-                    <h1 
+                    <h1
                         className="font-sans text-6xl md:text-8xl lg:text-[110px] leading-[0.95] tracking-tight uppercase"
                         style={{ textShadow: '0 4px 20px rgba(0,0,0,0.3)' }}
                     >
-                        Bâtir ensemble
+                        {title}
                     </h1>
-                    <p 
+                    <p
                         className="font-serif text-xl md:text-2xl lg:text-3xl font-light tracking-wide italic text-white/90"
                         style={{ textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}
                     >
-                        Le meilleur pour l'Afrique
+                        {subtitle}
                     </p>
                 </div>
 

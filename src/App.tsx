@@ -7,6 +7,9 @@ import ScrollToTop from './components/utils/ScrollToTop.tsx';
 import Header from "./components/layout/Header.tsx";
 import Footer from "./components/layout/Footer.tsx";
 import Home from "./pages/Home.tsx";
+import About from "./pages/About.tsx";
+import Activities from "./pages/Activities.tsx";
+import Contact from "./pages/Contact.tsx";
 
 // Register plugins outside the component
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -37,6 +40,9 @@ function AppContent() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/activites" element={<Activities />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </main>
