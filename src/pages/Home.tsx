@@ -1,6 +1,5 @@
 import Hero from "../components/Hero.tsx";
 import Mission from "../components/sections/Mission.tsx";
-import CurtainReveal from "../components/utils/CurtainReveal.tsx";
 import "../App.css";
 import PartnersSection from "../components/atoms/PartnersSection.tsx";
 import BentoShutterReveal from "../components/sections/BentoShutterReveal.tsx";
@@ -8,6 +7,7 @@ import ScrollStack, { ScrollStackItem } from "../components/utils/ScrollStack.ts
 import imgBTP from "../assets/img/btp.png";
 import imgCommerce from "../assets/img/commerce.png";
 import imgPetrole from "../assets/img/petrole.png";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const servicesData = [
     {
@@ -38,6 +38,7 @@ const servicesData = [
         bgClass: "bg-white text-black border border-black/10"
     }
 ]; export default function Home() {
+    useDocumentTitle("Sibiri Group | Accueil");
     return (
         <main>
             <Hero />

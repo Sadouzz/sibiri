@@ -10,10 +10,12 @@ import PartnersSection from '../components/atoms/PartnersSection';
 import imgBTP from '../assets/img/btp.png';
 import imgCommerce from '../assets/img/commerce.png';
 import imgPetrole from '../assets/img/petrole.png';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Activities() {
+    useDocumentTitle("Sibiri Group | Nos Activités");
     const containerRef = useRef<HTMLDivElement>(null);
 
     useScrollReveal(true);

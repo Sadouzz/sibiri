@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     const footerRef = useRef<HTMLElement>(null);
@@ -91,18 +92,18 @@ export default function Footer() {
                                 {/* NAVIGATION */}
                                 <div className="flex flex-col gap-5">
                                     <h4 className="text-[11px] tracking-widest uppercase text-white/50 font-sans mb-2">Navigation</h4>
-                                    <a href="#" className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">À Propos</a>
-                                    <a href="#" className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Services</a>
-                                    <a href="#" className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Projets</a>
-                                    <a href="#" className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Partenaires</a>
+                                    <Link to="/" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Accueil</Link>
+                                    <Link to="/about" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Le Groupe</Link>
+                                    <Link to="/activites" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Nos Activités</Link>
+                                    <Link to="/contact" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Contact</Link>
                                 </div>
                                 
                                 {/* SERVICES */}
                                 <div className="flex flex-col gap-5">
-                                    <h4 className="text-[11px] tracking-widest uppercase text-white/50 font-sans mb-2">Services</h4>
-                                    <a href="#" className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">BTP</a>
-                                    <a href="#" className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Activités Commerciales</a>
-                                    <a href="#" className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Activités Pétrolières</a>
+                                    <h4 className="text-[11px] tracking-widest uppercase text-white/50 font-sans mb-2">Activités</h4>
+                                    <Link to="/activites" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">BTP et Génie Civil</Link>
+                                    <Link to="/activites" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Activités Commerciales</Link>
+                                    <Link to="/activites" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Activités Pétrolières</Link>
                                 </div>
 
                                 {/* SOCIAL MEDIA */}
@@ -146,9 +147,10 @@ export default function Footer() {
                     {/* VERY BOTTOM */}
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-[10px] uppercase tracking-widest text-white/50 font-sans pt-8 border-t border-white/10 gap-6">
                         <p>© Copyright 2017 Sibiri Group | Tous droits réservés | ADAGE</p>
-                        <div className="flex gap-8">
-                            <a href="#" className="hover:text-sibiri-gold transition-colors">Termes & Conditions</a>
-                            <a href="#" className="hover:text-sibiri-gold transition-colors">Privacy Policy</a>
+                        <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-4 sm:mt-0 items-center">
+                            <Link to="/terms" className="hover:text-sibiri-gold transition-colors">Termes & Conditions</Link>
+                            <Link to="/privacy" className="hover:text-sibiri-gold transition-colors">Confidentialité</Link>
+                            <Link to="/cookies" className="hover:text-sibiri-gold transition-colors">Cookies</Link>
                         </div>
                     </div>
 

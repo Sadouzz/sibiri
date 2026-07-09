@@ -6,6 +6,7 @@ import CircularGallery from "../components/sections/CircularGallery.tsx";
 import Origins from "../components/sections/Origins.tsx";
 import ContactInfo from "../components/sections/ContactInfo.tsx";
 import StyledHeading from "../components/atoms/StyledHeading.tsx";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const galleryItems = [
     { image: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiM2NjY2NjYiPjxwYXRoIGQ9Ik0zIDIyaDJ2LTRIM3Y0em00IDBoMnYtOEg3djh6bTQgMGgydi0xMmgtMnYxMnptNCAwaDJWNmgtMnYxNnptNCAwaDJWMmgtMnYyMHoiLz48L3N2Zz4=", text: "Expérience" },
@@ -15,6 +16,7 @@ const galleryItems = [
 ];
 
 export default function About() {
+    useDocumentTitle("Sibiri Group | Le Groupe");
     return (
         <main>
             {/* <Hero title="Le Groupe" subtitle="Découvrez notre histoire" /> */}

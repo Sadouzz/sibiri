@@ -3,10 +3,12 @@ import PageHeroSection from '../components/sections/PageHeroSection';
 import useScrollReveal from '../hooks/useScrollReveal';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Contact() {
+    useDocumentTitle("Sibiri Group | Contact");
     useScrollReveal(true);
 
     const locations = [
