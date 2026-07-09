@@ -1,5 +1,6 @@
 import React from 'react';
 import HorizontalCurtainReveal from '../utils/HorizontalCurtainReveal.tsx';
+import pdgImg from '../../assets/img/pdg.webp';
 
 const Mission: React.FC = () => {
     return (
@@ -12,6 +13,9 @@ const Mission: React.FC = () => {
                             Le Groupe
                         </h2>
                     </HorizontalCurtainReveal>
+                    <div className="mt-8 md:mt-12">
+                        <img src={pdgImg} alt="PDG Sibiri Group" className="w-full h-auto object-cover" />
+                    </div>
                 </div>
 
                 {/* Sub-label */}

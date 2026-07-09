@@ -9,7 +9,7 @@ export interface ScrollStackItemProps {
 
 export const ScrollStackItem: React.FC<ScrollStackItemProps> = ({ children, itemClassName = '' }) => (
   <div
-    className={`scroll-stack-card relative w-full h-[100vh] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border origin-top will-change-transform ${itemClassName}`.trim()}
+    className={`scroll-stack-card relative w-full h-80 my-8 p-12 rounded-[40px] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border origin-top will-change-transform ${itemClassName}`.trim()}
     style={{
       backfaceVisibility: 'hidden',
       transformStyle: 'preserve-3d'
@@ -90,12 +90,22 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
   const getElementOffset = useCallback(
     (element: HTMLElement) => {
-      if (useWindowScroll) {
-        const rect = element.getBoundingClientRect();
-        return rect.top + window.scrollY;
-      } else {
-        return element.offsetTop;
+      let top = 0;
+      let el: HTMLElement | null = element;
+      while (el) {
+        top += el.offsetTop;
+        el = el.offsetParent as HTMLElement | null;
       }
+      if (!useWindowScroll && scrollerRef.current) {
+        let scrollerTop = 0;
+        let s: HTMLElement | null = scrollerRef.current;
+        while (s) {
+          scrollerTop += s.offsetTop;
+          s = s.offsetParent as HTMLElement | null;
+        }
+        return top - scrollerTop;
+      }
+      return top;
     },
     [useWindowScroll]
   );
@@ -105,7 +115,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
 
     isUpdatingRef.current = true;
 
-    const { scrollTop, containerHeight } = getScrollData();
+    const { scrollTop, containerHeight, scrollContainer } = getScrollData();
     const stackPositionPx = parsePercentage(stackPosition, containerHeight);
     const scaleEndPositionPx = parsePercentage(scaleEndPosition, containerHeight);
 
@@ -156,19 +166,19 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       }
 
       const newTransform = {
-        translateY: translateY,
-        scale: scale,
-        rotation: rotation,
-        blur: blur
+        translateY: Math.round(translateY * 100) / 100,
+        scale: Math.round(scale * 1000) / 1000,
+        rotation: Math.round(rotation * 100) / 100,
+        blur: Math.round(blur * 100) / 100
       };
 
       const lastTransform = lastTransformsRef.current.get(i);
       const hasChanged =
         !lastTransform ||
-        Math.abs(lastTransform.translateY - newTransform.translateY) > 0.001 ||
-        Math.abs(lastTransform.scale - newTransform.scale) > 0.0001 ||
-        Math.abs(lastTransform.rotation - newTransform.rotation) > 0.001 ||
-        Math.abs(lastTransform.blur - newTransform.blur) > 0.01;
+        Math.abs(lastTransform.translateY - newTransform.translateY) > 0.1 ||
+        Math.abs(lastTransform.scale - newTransform.scale) > 0.001 ||
+        Math.abs(lastTransform.rotation - newTransform.rotation) > 0.1 ||
+        Math.abs(lastTransform.blur - newTransform.blur) > 0.1;
 
       if (hasChanged) {
         const transform = `translate3d(0, ${newTransform.translateY}px, 0) scale(${newTransform.scale}) rotate(${newTransform.rotation}deg)`;
@@ -337,7 +347,7 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
         willChange: useWindowScroll ? 'auto' : 'scroll-position'
       }}
     >
-      <div className={`scroll-stack-inner pt-[10vh] px-0 md:px-20 ${useWindowScroll ? 'pb-[100vh]' : 'pb-[50rem] min-h-screen'}`}>
+      <div className={`scroll-stack-inner pt-[10vh] px-0 md:px-20 ${useWindowScroll ? 'pb-[50vh]' : 'pb-[50rem] min-h-screen'}`}>
         {children}
         {/* Spacer so the last pin can release cleanly */}
         <div className="scroll-stack-end w-full h-px" />

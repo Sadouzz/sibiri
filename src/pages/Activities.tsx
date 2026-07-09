@@ -6,6 +6,10 @@ import useScrollReveal from '../hooks/useScrollReveal';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import PartnersSection from '../components/atoms/PartnersSection';
+import imgBTP from '../assets/img/btp.png';
+import imgCommerce from '../assets/img/commerce.png';
+import imgPetrole from '../assets/img/petrole.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,7 +54,7 @@ export default function Activities() {
                         <div className="story-section flex flex-col lg:flex-row gap-12 lg:gap-24 mb-32 lg:mb-48 items-center">
                             <div className="w-full lg:w-1/2 overflow-hidden h-[400px] lg:h-[600px] relative">
                                 <img
-                                    src="https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop"
+                                    src={imgBTP}
                                     alt="BTP et Génie Civil"
                                     className="parallax-image absolute inset-0 w-full h-[140%] object-cover -top-[20%]"
                                 />
@@ -93,7 +97,7 @@ export default function Activities() {
                             </div>
                             <div className="w-full lg:w-1/2 overflow-hidden h-[400px] lg:h-[600px] relative">
                                 <img
-                                    src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1200&auto=format&fit=crop"
+                                    src={imgCommerce}
                                     alt="Activités Commerciales"
                                     className="parallax-image absolute inset-0 w-full h-[140%] object-cover -top-[20%]"
                                 />
@@ -105,7 +109,7 @@ export default function Activities() {
                         <div className="story-section flex flex-col lg:flex-row gap-12 lg:gap-24 items-center">
                             <div className="w-full lg:w-1/2 overflow-hidden h-[400px] lg:h-[600px] relative">
                                 <img
-                                    src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?q=80&w=1200&auto=format&fit=crop"
+                                    src={imgPetrole}
                                     alt="Activités Pétrolières"
                                     className="parallax-image absolute inset-0 w-full h-[140%] object-cover -top-[20%]"
                                 />
@@ -133,7 +137,7 @@ export default function Activities() {
                 </section>
 
                 {/* Nos Sociétés Section */}
-                <section className="w-full bg-[#111115] py-24 lg:py-32 border-t border-white/5" data-header-theme="black">
+                {/* <section className="w-full bg-[#111115] py-24 lg:py-32 border-t border-white/5" data-header-theme="black">
                     <div className="max-w-[1800px] mx-auto px-6 lg:px-12">
                         <div className="text-center mb-16">
                             <h2 className="split font-serif italic text-4xl md:text-5xl lg:text-6xl tracking-tight text-white mb-6">
@@ -145,28 +149,24 @@ export default function Activities() {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {/* Company Card 1 */}
                             <div className="group relative p-8 md:p-12 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-500 overflow-hidden flex flex-col gap-4">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-sibiri-gold origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
                                 <h3 className="font-serif italic text-3xl text-white">Etalon Energy</h3>
                                 <p className="font-sans text-gray-400 font-light">Leader dans la location de cuves portatives et représentant exclusif PUMA.</p>
                             </div>
 
-                            {/* Company Card 2 */}
                             <div className="group relative p-8 md:p-12 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-500 overflow-hidden flex flex-col gap-4">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-sibiri-gold origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
                                 <h3 className="font-serif italic text-3xl text-white">Val Construction</h3>
                                 <p className="font-sans text-gray-400 font-light">BTP, aménagements et promotions immobilières au Burkina Faso et en Côte d'Ivoire.</p>
                             </div>
 
-                            {/* Company Card 3 */}
                             <div className="group relative p-8 md:p-12 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-500 overflow-hidden flex flex-col gap-4">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-sibiri-gold origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
                                 <h3 className="font-serif italic text-3xl text-white">SOMEHAL</h3>
                                 <p className="font-sans text-gray-400 font-light">Commerce général et négoce international. Représentant exclusif ORO.</p>
                             </div>
 
-                            {/* Company Card 4 */}
                             <div className="group relative p-8 md:p-12 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-500 overflow-hidden flex flex-col gap-4 lg:col-span-3">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-sibiri-gold origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></div>
                                 <h3 className="font-serif italic text-3xl text-white">SDHL</h3>
@@ -174,8 +174,8 @@ export default function Activities() {
                             </div>
                         </div>
                     </div>
-                </section>
-
+                </section> */}
+                <PartnersSection />
                 <ContactInfo />
             </div>
         </div>
