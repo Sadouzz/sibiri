@@ -105,11 +105,11 @@ const AccordionItemComponent: React.FC<{
             {/* content */}
             {isActive && (
                 <div ref={contentRef} className="relative z-10">
-                    {item.title && (
+                    {/* {item.title && (
                         <h4 className="font-serif italic text-3xl md:text-5xl font-medium mb-6 tracking-tight text-sibiri-gold drop-shadow-md">
                             {item.title}
                         </h4>
-                    )}
+                    )} */}
                     {item.description && (
                         <p className="text-sm leading-relaxed" style={{ color: descriptionColor }}>
                             {item.description}
@@ -147,7 +147,7 @@ const AccordionSplit: React.FC<AccordionSplitProps> = ({
                     </ul>
                 </div>
             ),
-            image: "https://images.unsplash.com/photo-1774637777045-e7390fc657e8?q=80&w=1400&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1400&auto=format&fit=crop",
         },
         {
             id: "2",
@@ -168,7 +168,7 @@ const AccordionSplit: React.FC<AccordionSplitProps> = ({
                     </p>
                 </div>
             ),
-            image: "https://images.unsplash.com/photo-1775348437069-0f2d58a180ee?w=1400&auto=format&fit=crop&q=60",
+            image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&auto=format&fit=crop&q=60",
         },
         {
             id: "3",
@@ -188,7 +188,7 @@ const AccordionSplit: React.FC<AccordionSplitProps> = ({
                     </ul>
                 </div>
             ),
-            image: "https://images.unsplash.com/photo-1775214593108-5d577e88d219?w=1400&auto=format&fit=crop&q=60",
+            image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&auto=format&fit=crop&q=60",
         },
         {
             id: "4",
@@ -211,7 +211,7 @@ const AccordionSplit: React.FC<AccordionSplitProps> = ({
                     </div>
                 </div>
             ),
-            image: "https://images.unsplash.com/photo-1774270905958-86e7eaeae23d?w=1400&auto=format&fit=crop&q=60",
+            image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1400&auto=format&fit=crop&q=60",
         },
         {
             id: "5",
@@ -235,7 +235,7 @@ const AccordionSplit: React.FC<AccordionSplitProps> = ({
                     </ul>
                 </div>
             ),
-            image: "https://images.unsplash.com/photo-1774637777045-e7390fc657e8?q=80&w=1400&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1400&auto=format&fit=crop",
         },
     ],
     backgroundColor = "#1B273D",
