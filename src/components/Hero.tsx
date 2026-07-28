@@ -59,12 +59,6 @@ const Hero: React.FC<HeroProps> = ({
                     </p>
                 </div>
 
-                {/* Bottom Right: Small Description */}
-                <div className="mb-2 md:mb-4">
-                    <p className="font-sans text-xs md:text-sm lg:text-base font-semibold tracking-wide text-right">
-                        Creative studio based in Germany
-                    </p>
-                </div>
             </div>
         </div>
     );
