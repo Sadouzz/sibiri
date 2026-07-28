@@ -23,8 +23,8 @@ export default function PageHeroSection({
     secondTitle,
 }: PageHeroSectionProps) {
     return (
-        <section className="bg-white pt-32! min-h-[50vh]">
-            <div className="mx-12!">
+        <section className="bg-white pt-24 md:pt-32! min-h-[50vh]">
+            <div className="mx-0 sm:mx-6 md:mx-12!">
                 {/* Équivalent simplifié de container-fluid */}
                 <div className="w-full px-4 sm:px-6 lg:px-8">
 
@@ -40,12 +40,12 @@ export default function PageHeroSection({
                     />
 
                     {/* Titre principal */}
-                    <h1 className="font-extrabold text-5xl text-gold-dark md:text-6xl! mb-15! max-w-[700px]">
+                    <h1 className="font-extrabold text-3xl sm:text-5xl text-gold-dark md:text-6xl! mb-10 md:mb-15! max-w-[700px] break-words">
                         {firstTitle}
                     </h1>
 
                     {/* Sous-titre */}
-                    <h2 className="text-2xl md:text-3xl text-black max-w-[700px]">
+                    <h2 className="text-xl md:text-3xl text-black max-w-[700px]">
                         {secondTitle}
                     </h2>
 
