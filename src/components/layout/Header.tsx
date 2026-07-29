@@ -97,7 +97,6 @@ export default function Header() {
                     <div className="hidden lg:flex flex-1 h-full items-center justify-start border-r border-[var(--header-border)] transition-colors duration-400">
                         <HeaderLink to="/" label="Accueil" />
                         <HeaderLink to="/about" label="Le Groupe" />
-                        <HeaderLink to="/realisations" label="Nos Réalisations" />
                         {/* <HeaderLink to="/news" label="Nouveautés" /> */}
                     </div>
 
@@ -145,7 +144,8 @@ export default function Header() {
 
                     {/* --- DROITE (Desktop uniquement) --- */}
                     <div className="hidden lg:flex flex-1 h-full items-center justify-end border-l border-[var(--header-border)] transition-colors duration-400">
-                        <HeaderLink to="/activites" label="Nos Activités" />
+                        <HeaderLink to="/activites" label="Activités" />
+                        <HeaderLink to="/realisations" label="Réalisations" />
                         <HeaderLink to="/contact" label="Contact" />
                         {/* <HeaderLink to="/confections" label="Confections" /> */}
                         {/* <HeaderLink to="/tenues" label="Tenues" /> */}
@@ -169,8 +169,8 @@ export default function Header() {
                 items={[
                     { label: 'Accueil', ariaLabel: 'Accueil', link: '/' },
                     { label: 'Le Groupe', ariaLabel: 'Le Groupe', link: '/about' },
-                    { label: 'Nos Réalisations', ariaLabel: 'Nos Réalisations', link: '/realisations' },
-                    { label: 'Nos Activités', ariaLabel: 'Nos Activités', link: '/activites' },
+                    { label: 'Réalisations', ariaLabel: 'Réalisations', link: '/realisations' },
+                    { label: 'Nos Activités', ariaLabel: 'Activités', link: '/activites' },
                     { label: 'Contact', ariaLabel: 'Contact', link: '/contact' }
                 ]}
             />
