@@ -7,11 +7,19 @@ generator client {
   provider = "prisma-client-js"
 }
 
+model Category {
+  id        Int       @id @default(autoincrement())
+  name      String
+  slug      String    @unique
+  projects  Project[]
+}
+
 model Project {
   id          Int      @id @default(autoincrement())
   title       String
   description String
-  category    String
+  categoryId  Int
+  category    Category @relation(fields: [categoryId], references: [id])
   images      String[]
   date        DateTime?
   createdAt   DateTime @default(now())

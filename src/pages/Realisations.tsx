@@ -10,12 +10,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const categories = [
-    { id: 'all', label: 'Toutes les réalisations' },
-    { id: 'btp', label: 'Bâtiment et Travaux Publics' },
-    { id: 'commerciales', label: 'Activités Commerciales' },
-    { id: 'petrolieres', label: 'Activités Pétrolières' }
-];
+interface Category {
+    slug: string;
+    name: string;
+}
 
 export default function Realisations() {
     useDocumentTitle("Sibiri Group | Nos Réalisations");
@@ -28,8 +26,22 @@ export default function Realisations() {
     // Initial category from URL or 'all'
     const initialCategory = searchParams.get('category') || 'all';
     const [activeCategory, setActiveCategory] = useState(initialCategory);
+    const [categories, setCategories] = useState<Category[]>([{ slug: 'all', name: 'Toutes les réalisations' }]);
 
     useScrollReveal(true);
+
+    useEffect(() => {
+        let rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+        rawApiUrl = rawApiUrl.replace(/\/$/, '');
+        if (!rawApiUrl.endsWith('/api')) rawApiUrl += '/api';
+        
+        fetch(`${rawApiUrl}/categories`)
+            .then(res => res.json())
+            .then(data => {
+                setCategories([{ slug: 'all', name: 'Toutes les réalisations' }, ...data]);
+            })
+            .catch(err => console.error("Erreur Categories :", err));
+    }, []);
 
     useEffect(() => {
         setLoading(true);
@@ -104,15 +116,15 @@ export default function Realisations() {
                         <div className="flex flex-wrap justify-center gap-4 mb-16 split">
                             {categories.map((cat) => (
                                 <button
-                                    key={cat.id}
-                                    onClick={() => handleFilterClick(cat.id)}
+                                    key={cat.slug}
+                                    onClick={() => handleFilterClick(cat.slug)}
                                     className={`px-6 py-3 font-sans text-sm md:text-base transition-all duration-300 border ${
-                                        activeCategory === cat.id 
+                                        activeCategory === cat.slug 
                                             ? 'bg-sibiri-gold border-sibiri-gold text-black shadow-[0_0_20px_rgba(212,175,55,0.3)]' 
                                             : 'bg-transparent border-white/20 text-gray-400 hover:border-sibiri-gold hover:text-sibiri-gold'
                                     }`}
                                 >
-                                    {cat.label}
+                                    {cat.name}
                                 </button>
                             ))}
                         </div>
@@ -136,7 +148,7 @@ export default function Realisations() {
                                         {/* Category Badge */}
                                         <div className="absolute top-4 left-4 z-20">
                                             <span className="px-4 py-1.5 bg-black/60 backdrop-blur-md border border-white/20 text-xs font-mono uppercase tracking-wider text-sibiri-gold">
-                                                {categories.find(c => c.id === project.category)?.label}
+                                                {project.category?.name || 'Non classé'}
                                             </span>
                                         </div>
                                     </div>

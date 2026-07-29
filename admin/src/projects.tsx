@@ -1,11 +1,13 @@
-import { List, Datagrid, TextField, DateField, EditButton, Edit, SimpleForm, TextInput, Create, ArrayInput, SimpleFormIterator, DateInput } from 'react-admin';
+import { List, Datagrid, TextField, DateField, EditButton, Edit, SimpleForm, TextInput, Create, ArrayInput, SimpleFormIterator, DateInput, ReferenceInput, SelectInput, ReferenceField } from 'react-admin';
 
 export const ProjectList = () => (
     <List>
         <Datagrid>
             <TextField source="id" />
             <TextField source="title" label="Titre" />
-            <TextField source="category" label="Catégorie" />
+            <ReferenceField source="categoryId" reference="categories" label="Catégorie">
+                <TextField source="name" />
+            </ReferenceField>
             <DateField source="date" label="Date" />
             <EditButton />
         </Datagrid>
@@ -18,7 +20,9 @@ export const ProjectEdit = () => (
             <TextInput disabled source="id" />
             <TextInput source="title" label="Titre" fullWidth />
             <TextInput source="description" label="Description" multiline fullWidth />
-            <TextInput source="category" label="Catégorie (btp, commerciales, petrolieres)" fullWidth />
+            <ReferenceInput source="categoryId" reference="categories" label="Catégorie">
+                <SelectInput optionText="name" fullWidth />
+            </ReferenceInput>
             <DateInput source="date" label="Date de réalisation" />
             <ArrayInput source="images" label="Images (URLs)">
                 <SimpleFormIterator inline>
@@ -34,7 +38,9 @@ export const ProjectCreate = () => (
         <SimpleForm>
             <TextInput source="title" label="Titre" fullWidth />
             <TextInput source="description" label="Description" multiline fullWidth />
-            <TextInput source="category" label="Catégorie (btp, commerciales, petrolieres)" fullWidth />
+            <ReferenceInput source="categoryId" reference="categories" label="Catégorie">
+                <SelectInput optionText="name" fullWidth />
+            </ReferenceInput>
             <DateInput source="date" label="Date de réalisation" />
             <ArrayInput source="images" label="Images (URLs)">
                 <SimpleFormIterator inline>
