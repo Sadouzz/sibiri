@@ -10,6 +10,7 @@ import PartnersSection from '../components/atoms/PartnersSection';
 import imgBTP from '../assets/img/btp.png';
 import imgCommerce from '../assets/img/commerce.png';
 import imgPetrole from '../assets/img/petrole.png';
+import { Link } from 'react-router-dom';
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -79,6 +80,12 @@ export default function Activities() {
                                     <li>Aménagement routiers</li>
                                     <li>Aménagements extérieurs ; etc.</li>
                                 </ul>
+                                <div className="split mt-6">
+                                    <Link to="/realisations?category=btp" className="inline-flex items-center gap-3 px-8 py-4 bg-sibiri-gold/10 hover:bg-sibiri-gold/20 text-sibiri-gold border border-sibiri-gold/30 font-sans transition-all duration-300 group w-fit">
+                                        <span className="font-medium tracking-wide">Voir nos réalisations</span>
+                                        <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
 
@@ -96,6 +103,12 @@ export default function Activities() {
                                 <p className="split font-sans text-lg md:text-xl text-gray-400 leading-relaxed font-light">
                                     Notre collaboration avec de grandes entreprises à l’international, dont <strong className="text-white font-medium">Quimiquas ORO</strong> et <strong className="text-white font-medium">ORYX Energies</strong>, nous permet d’offrir le plus haut niveau de qualité de produits à un prix des plus compétitifs, notamment avec nos filiales <strong className="text-sibiri-gold">SOMEHAL</strong> et <strong className="text-sibiri-gold">SDHL</strong>.
                                 </p>
+                                <div className="split mt-6">
+                                    <Link to="/realisations?category=commerciales" className="inline-flex items-center gap-3 px-8 py-4 bg-sibiri-gold/10 hover:bg-sibiri-gold/20 text-sibiri-gold border border-sibiri-gold/30 font-sans transition-all duration-300 group w-fit">
+                                        <span className="font-medium tracking-wide">Voir nos réalisations</span>
+                                        <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                    </Link>
+                                </div>
                             </div>
                             <div className="w-full lg:w-1/2 overflow-hidden h-[400px] lg:h-[600px] relative">
                                 <img
@@ -132,6 +145,12 @@ export default function Activities() {
                                 <p className="split font-sans text-lg md:text-xl text-gray-400 leading-relaxed font-light">
                                     <strong className="text-sibiri-gold">SDHL</strong> est partenaire de la SONABHY. Notre filiale transporte notamment des hydrocarbures pour ORYX Energies.
                                 </p>
+                                <div className="split mt-6">
+                                    <Link to="/realisations?category=petrolieres" className="inline-flex items-center gap-3 px-8 py-4 bg-sibiri-gold/10 hover:bg-sibiri-gold/20 text-sibiri-gold border border-sibiri-gold/30 font-sans transition-all duration-300 group w-fit">
+                                        <span className="font-medium tracking-wide">Voir nos réalisations</span>
+                                        <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
 

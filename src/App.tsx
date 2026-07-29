@@ -12,6 +12,7 @@ import Footer from "./components/layout/Footer.tsx";
 import Home from "./pages/Home.tsx";
 import About from "./pages/About.tsx";
 import Activities from "./pages/Activities.tsx";
+import Realisations from "./pages/Realisations.tsx";
 import Contact from "./pages/Contact.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import CookiesPolicy from "./pages/CookiesPolicy.tsx";
@@ -62,6 +63,7 @@ function AppContent() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/activites" element={<Activities />} />
+            <Route path="/realisations" element={<Realisations />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/cookies" element={<CookiesPolicy />} />
