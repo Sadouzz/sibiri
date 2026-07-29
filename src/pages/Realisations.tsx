@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import PageHeroSection from '../components/sections/PageHeroSection';
 import ContactInfo from '../components/sections/ContactInfo';
@@ -9,58 +9,6 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const projects = [
-    { 
-        id: 1, 
-        category: 'btp', 
-        title: 'Construction de la Cité des Anges', 
-        description: 'Un projet immobilier de 500 logements sociaux à Ouagadougou visant à faciliter l\'accès au logement.', 
-        image: 'https://images.unsplash.com/photo-1541888018185-117a3a71cb67?auto=format&fit=crop&q=80&w=800' 
-    },
-    { 
-        id: 2, 
-        category: 'btp', 
-        title: 'Aménagement de l\'Axe Nord', 
-        description: 'Construction et bitumage de 120km de route nationale avec nos partenaires Val Construction.', 
-        image: 'https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&q=80&w=800' 
-    },
-    { 
-        id: 3, 
-        category: 'commerciales', 
-        title: 'Importation Quimiquas ORO', 
-        description: 'Distribution de plus de 10 000 tonnes de produits de qualité en Afrique de l\'Ouest via SOMEHAL.', 
-        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800' 
-    },
-    { 
-        id: 4, 
-        category: 'petrolieres', 
-        title: 'Partenariat SONABHY', 
-        description: 'Transport et logistique de 50 millions de litres d\'hydrocarbures pour soutenir l\'économie locale.', 
-        image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80&w=800' 
-    },
-    { 
-        id: 5, 
-        category: 'btp', 
-        title: 'Résidence Emergence', 
-        description: 'Promotion immobilière de très haut standing à Abidjan comprenant des villas luxueuses.', 
-        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800' 
-    },
-    { 
-        id: 6, 
-        category: 'commerciales', 
-        title: 'Réseau de distribution SDHL', 
-        description: 'Mise en place d\'une chaîne logistique couvrant 5 pays de la sous-région ouest-africaine.', 
-        image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&q=80&w=800' 
-    },
-    { 
-        id: 7, 
-        category: 'petrolieres', 
-        title: 'Cuves Portatives PUMA', 
-        description: 'Déploiement de 200 cuves portatives pour accompagner le secteur minier au Burkina Faso.', 
-        image: 'https://images.unsplash.com/photo-1560769530-53ebac51a91e?auto=format&fit=crop&q=80&w=800' 
-    },
-];
 
 const categories = [
     { id: 'all', label: 'Toutes les réalisations' },
@@ -74,6 +22,8 @@ export default function Realisations() {
     const [searchParams, setSearchParams] = useSearchParams();
     const containerRef = useRef<HTMLDivElement>(null);
     const projectsRef = useRef<HTMLDivElement>(null);
+    const [projects, setProjects] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
     
     // Initial category from URL or 'all'
     const initialCategory = searchParams.get('category') || 'all';
@@ -81,9 +31,26 @@ export default function Realisations() {
 
     useScrollReveal(true);
 
-    const filteredProjects = activeCategory === 'all' 
-        ? projects 
-        : projects.filter(p => p.category === activeCategory);
+    useEffect(() => {
+        setLoading(true);
+        let url = 'http://localhost:3001/api/projects';
+        if (activeCategory !== 'all') {
+            url += `?category=${activeCategory}`;
+        }
+        
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setProjects(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error("Erreur API :", err);
+                setLoading(false);
+            });
+    }, [activeCategory]);
+
+    const filteredProjects = projects;
 
     // Handle filter click and update URL
     const handleFilterClick = (categoryId: string) => {
@@ -149,7 +116,11 @@ export default function Realisations() {
 
                         {/* Projects Grid */}
                         <div ref={projectsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 min-h-[500px]">
-                            {filteredProjects.map((project) => (
+                            {loading ? (
+                                <div className="col-span-1 md:col-span-2 lg:col-span-3 flex justify-center items-center py-20">
+                                    <div className="w-12 h-12 border-4 border-sibiri-gold border-t-transparent rounded-full animate-spin"></div>
+                                </div>
+                            ) : filteredProjects.map((project) => (
                                 <div key={project.id} className="project-card group relative flex flex-col bg-white/5 border border-white/10 overflow-hidden hover:border-sibiri-gold/50 transition-colors duration-500">
                                     {/* Image Container */}
                                     <div className="relative h-64 md:h-80 overflow-hidden">
