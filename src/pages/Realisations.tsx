@@ -33,7 +33,8 @@ export default function Realisations() {
 
     useEffect(() => {
         setLoading(true);
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+        const rawApiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
+        const apiUrl = rawApiUrl.replace(/\/$/, '');
         let url = `${apiUrl}/projects`;
         if (activeCategory !== 'all') {
             url += `?category=${activeCategory}`;
