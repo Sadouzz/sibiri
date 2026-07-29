@@ -97,7 +97,7 @@ export default function Header() {
                     <div className="hidden lg:flex flex-1 h-full items-center justify-start border-r border-[var(--header-border)] transition-colors duration-400">
                         <HeaderLink to="/" label="Accueil" />
                         <HeaderLink to="/about" label="Le Groupe" />
-                        {/* <HeaderLink to="/events" label="Evènements" /> */}
+                        <HeaderLink to="/realisations" label="Nos Réalisations" />
                         {/* <HeaderLink to="/news" label="Nouveautés" /> */}
                     </div>
 
@@ -169,6 +169,7 @@ export default function Header() {
                 items={[
                     { label: 'Accueil', ariaLabel: 'Accueil', link: '/' },
                     { label: 'Le Groupe', ariaLabel: 'Le Groupe', link: '/about' },
+                    { label: 'Nos Réalisations', ariaLabel: 'Nos Réalisations', link: '/realisations' },
                     { label: 'Nos Activités', ariaLabel: 'Nos Activités', link: '/activites' },
                     { label: 'Contact', ariaLabel: 'Contact', link: '/contact' }
                 ]}

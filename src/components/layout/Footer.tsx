@@ -94,6 +94,7 @@ export default function Footer() {
                                     <h4 className="text-[11px] tracking-widest uppercase text-white/50 font-sans mb-2">Navigation</h4>
                                     <Link to="/" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Accueil</Link>
                                     <Link to="/about" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Le Groupe</Link>
+                                    <Link to="/realisations" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Nos Réalisations</Link>
                                     <Link to="/activites" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Nos Activités</Link>
                                     <Link to="/contact" onClick={() => window.scrollTo(0,0)} className="text-sm font-sans font-medium opacity-90 hover:opacity-100 hover:text-sibiri-gold transition-colors">Contact</Link>
                                 </div>
