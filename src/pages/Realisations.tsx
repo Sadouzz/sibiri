@@ -129,7 +129,7 @@ export default function Realisations() {
                                     <div className="relative h-64 md:h-80 overflow-hidden">
                                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors duration-500 z-10" />
                                         <img 
-                                            src={project.image} 
+                                            src={project.images && project.images.length > 0 ? project.images[0] : 'https://images.unsplash.com/photo-1541888018185-117a3a71cb67?auto=format&fit=crop&q=80&w=800'} 
                                             alt={project.title} 
                                             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                                         />
@@ -146,6 +146,11 @@ export default function Realisations() {
                                         <h3 className="font-serif text-2xl md:text-3xl text-white mb-4 group-hover:text-sibiri-gold transition-colors duration-300">
                                             {project.title}
                                         </h3>
+                                        {project.date && (
+                                            <p className="text-sibiri-gold text-sm font-mono mb-3">
+                                                {new Date(project.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long' })}
+                                            </p>
+                                        )}
                                         <p className="font-sans text-gray-400 font-light leading-relaxed mb-6 flex-grow">
                                             {project.description}
                                         </p>

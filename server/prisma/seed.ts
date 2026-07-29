@@ -51,7 +51,13 @@ async function main() {
   console.log(`Start seeding ...`)
   for (const p of projects) {
     const project = await prisma.project.create({
-      data: p,
+      data: {
+        category: p.category,
+        title: p.title,
+        description: p.description,
+        images: [p.image],
+        date: new Date(),
+      },
     })
     console.log(`Created project with id: ${project.id}`)
   }
